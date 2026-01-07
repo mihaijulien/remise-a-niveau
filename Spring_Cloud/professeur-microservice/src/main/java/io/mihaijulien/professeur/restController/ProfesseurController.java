@@ -1,5 +1,6 @@
 package io.mihaijulien.professeur.restController;
 
+import io.mihaijulien.professeur.dto.APIResponseDto;
 import io.mihaijulien.professeur.dto.ProfesseurDto;
 import io.mihaijulien.professeur.service.ProfesseurService;
 import org.springframework.http.HttpStatus;
@@ -16,10 +17,10 @@ import lombok.AllArgsConstructor;
 public class ProfesseurController {
     private ProfesseurService professeurService;
     @GetMapping("{id}")
-    public ResponseEntity<ProfesseurDto> getDepByCode(@PathVariable("id")
+    public ResponseEntity<APIResponseDto> getDepByCode(@PathVariable("id")
                                                        Long id)
     {
-        return new ResponseEntity<ProfesseurDto>(
+        return new ResponseEntity<APIResponseDto>(
                 professeurService.getProfesseurById(id),
                 HttpStatus.OK);
     }

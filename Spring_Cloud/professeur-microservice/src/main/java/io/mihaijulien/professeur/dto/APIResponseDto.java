@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfesseurDto {
-    private Long id;
-    private String prenom;
-    private String surnom;
-    private String depNom;
-    private String depCode;
+public class APIResponseDto {
+    private ProfesseurDto professeurDto;
+    private DepartementDto departementDto;
 }

@@ -22,4 +22,6 @@ public class Professeur {
 
     private String prenom;
     private String surnom;
+    private String depNom;
+    private String depCode;
 }
