@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "1.0"
+
+author:
+  name: "Julien Mihai [QA]"
+  email: "test@julien_test [QA]"

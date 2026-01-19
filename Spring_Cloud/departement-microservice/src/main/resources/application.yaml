@@ -1,6 +1,12 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: "prod"  # active: "default"
+  config:
+    import:
+      - "application-prod.yaml"
+      - "application-qa.yaml"
   application:
     name: departement
   datasource:

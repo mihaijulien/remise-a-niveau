@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+author:
+  name: "Julien Mihai [PROD]"
+  email: "test@julien_test [PROD]"
