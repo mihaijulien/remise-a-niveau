@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: native # lire les fichiers du classpath
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: "classpath:/config"
+server:
+  port: 9999
