@@ -1,7 +1,9 @@
 package io.mihaijulien.departement.restControllers;
 
+import io.mihaijulien.departement.config.Configuration;
 import io.mihaijulien.departement.dto.DepartementDto;
 import io.mihaijulien.departement.service.DepartementService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,8 @@ public class DepartementController {
     private DepartementService departmentService;
     @Value("${build.version")
     private String buildVersion;
+    @Autowired
+    private Configuration configuration;
 
     public DepartementController(DepartementService departmentService){
         this.departmentService = departmentService;
@@ -33,5 +37,11 @@ public class DepartementController {
     @GetMapping("/version")
     public ResponseEntity<String> version(){
         return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
+    }
+
+    @GetMapping("/author")
+    public ResponseEntity<String> retrieveAuthorInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(configuration.getName() + " " + configuration.getEmail());
     }
 }
