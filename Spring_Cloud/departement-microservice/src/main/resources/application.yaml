@@ -29,3 +29,6 @@ management:
 eureka:
   instance:
     prefer-ip-address: true
+
+build:
+  version: "1.0"
