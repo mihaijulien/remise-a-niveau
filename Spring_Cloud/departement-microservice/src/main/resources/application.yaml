@@ -2,7 +2,8 @@ server:
   port: 8080
 spring:
   profiles:
-    active: "prod"  # active: "default"
+    #active: "prod"
+    active: "default"
   config:
     import:
       - "application-prod.yaml"
@@ -10,7 +11,10 @@ spring:
   application:
     name: departement
   datasource:
-    url: jdbc:h2:mem:depdb
+#    url: jdbc:h2:mem:depdb
+     url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+     username: root
+     password: root
   h2:
     console:
       enabled: true
@@ -22,7 +26,7 @@ spring:
     config:
       enabled: false
     discovery:
-      enabled: true
+      enabled: false
   eureka:
     client:
       service-url:
