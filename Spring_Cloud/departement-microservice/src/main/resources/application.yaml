@@ -5,16 +5,17 @@ spring:
     #active: "prod"
     active: "default"
   config:
-    import:
-      - "application-prod.yaml"
-      - "application-qa.yaml"
+    import: optional:configserver:${CONFIG_SERVICE_URL:http://localhost:9999}
+#    import:
+#      - "application-prod.yaml"
+#      - "application-qa.yaml"
   application:
     name: departement
   datasource:
-#    url: jdbc:h2:mem:depdb
-     url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
-     username: root
-     password: root
+     url: jdbc:h2:mem:depdb
+#     url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+#     username: root
+#     password: root
   h2:
     console:
       enabled: true
@@ -26,7 +27,7 @@ spring:
     config:
       enabled: false
     discovery:
-      enabled: false
+      enabled: true
   eureka:
     client:
       service-url:
