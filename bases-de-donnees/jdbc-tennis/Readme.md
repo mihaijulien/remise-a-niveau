@@ -1,0 +1,13 @@
+![ER.PNG](ER.PNG)
+
+Pour créer la base TENNIS:
+Demarrer Mysql dans les services si ce n'est pas fait automatiquement
+
+Se connecter avec un client type DBeaver en root
+Ouvrir un editeur SQL et executer les commandes suivantes :
+
+root:root
+
+```
+CREATE DATABASE `TENNIS` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
