@@ -98,6 +98,17 @@ public class TestDeConnection {
 
             int nbEnregistrementModifier = preparedStatement2.executeUpdate();
 
+            // INSERT
+
+            PreparedStatement preparedStatement3 = conn.prepareStatement("INSERT INTO TENNIS.JOUEUR (NOM, PRENOM, SEXE) VALUES (?,?,?)");
+            preparedStatement3.setString(1, "Johanson");
+            preparedStatement3.setString(2, "Thomas");
+            preparedStatement3.setString(3, "H");
+
+            preparedStatement3.executeUpdate();
+
+            conn.commit();
+
             resultSet.close();
             resultSet2.close();
             resultSet3.close();
