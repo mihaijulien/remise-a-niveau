@@ -18,6 +18,8 @@ public class TestDeConnection {
             //conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/tennis","COURSDB","COURSDB");
             System.out.println("success");
 
+            conn.setAutoCommit(false);
+
 
             /*
             On va maintenant tenter de lire des données au travers de la connexion que l'on vient d'ouvrir.
@@ -30,8 +32,8 @@ public class TestDeConnection {
              */
             Statement statement = conn.createStatement();
             /*
-            Et à partir de cet objet statement, nous allons pouvoir invoquer une requête une query en anglais grâce
-            à la méthode Execute Query The Statement Statement Execute Query.
+            Et à partir de cet objet statement, nous allons pouvoir invoquer une requête (une query en anglais) grâce
+            à la méthode executeQuery().
              */
             ResultSet resultSet = statement.executeQuery("SELECT ID, NOM, PRENOM FROM TENNIS.JOUEUR WHERE ID=12");
 
@@ -87,6 +89,15 @@ public class TestDeConnection {
             fois la même requête successivement avec des valeurs différentes.
              */
 
+            // UPDATE
+
+            PreparedStatement preparedStatement2 = conn.prepareStatement("UPDATE TENNIS.JOUEUR NOM=?, PRENOM=? WHERE ID=?");
+            preparedStatement2.setString(1, "Anderson");
+            preparedStatement2.setString(2, "Kevin_modifier");
+            preparedStatement2.setLong(3, 77L);
+
+            int nbEnregistrementModifier = preparedStatement2.executeUpdate();
+
             resultSet.close();
             resultSet2.close();
             resultSet3.close();
@@ -96,6 +107,13 @@ public class TestDeConnection {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            try{
+                if(conn != null){
+                    conn.rollback();
+                }
+            } catch (SQLException ex) {
+                e.printStackTrace();
+            }
         }
         finally {
             try {
