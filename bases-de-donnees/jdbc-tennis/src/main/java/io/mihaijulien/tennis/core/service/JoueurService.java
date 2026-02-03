@@ -15,6 +15,10 @@ public class JoueurService {
         joueurRepository.create(joueur);
     }
 
+    public void getJoueur(Long id){
+        joueurRepository.getById(id);
+    }
+
     //  Un service transactionnel avec les DAO (Data Access Object)
 
     /*
