@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class CreateUserTest {
 
-    private CreateUserUseCase useCase = new UserCreatorUseCase();
     private UserRepository repository = new InMemoryUserRepository();
+    private CreateUserUseCase useCase = new UserCreatorUseCase(repository);
 
     @Test
     void shouldCreateUser() {
