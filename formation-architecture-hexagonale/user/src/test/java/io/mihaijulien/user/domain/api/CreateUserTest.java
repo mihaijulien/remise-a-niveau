@@ -15,7 +15,7 @@ public class CreateUserTest {
     @Test
     void shouldCreateUser() {
         Assertions.assertEquals(0, repository.findAll().size());
-        useCase.create("Mihai", "Jlien");
+        useCase.create("Mihai", "Julien");
         Assertions.assertEquals(1, repository.findAll().size());
     }
 }
