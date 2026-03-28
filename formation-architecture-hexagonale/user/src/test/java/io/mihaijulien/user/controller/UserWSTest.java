@@ -23,7 +23,7 @@ public class UserWSTest {
                 "lastName": "Mihai"
                 }
                 """;
-        mockMvc.perform(MockMvcRequestBuilders.post("/users").contentType(MediaType.APPLICATION_JSON).content(userJsonBody))
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/users").contentType(MediaType.APPLICATION_JSON).content(userJsonBody))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 }

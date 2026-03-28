@@ -15,7 +15,7 @@ public class UserWS {
         this.createUserUseCase = createUserUseCase;
     }
 
-    @PostMapping("/users")
+    @PostMapping("/api/users")
     public ResponseEntity<Void> createUser(@RequestBody CreateUserHttpRequest request){
         createUserUseCase.create(request.firstName(), request.lastName());
         return ResponseEntity.status(HttpStatus.CREATED).build();
