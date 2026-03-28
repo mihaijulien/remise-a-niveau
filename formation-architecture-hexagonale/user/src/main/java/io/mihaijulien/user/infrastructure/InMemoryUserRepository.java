@@ -1,11 +1,14 @@
-package io.mihaijulien.user.domain.spi;
+package io.mihaijulien.user.infrastructure;
 
 import io.mihaijulien.user.domain.User;
+import io.mihaijulien.user.domain.spi.UserRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryUserRepository implements UserRepository{
+@Repository
+public class InMemoryUserRepository implements UserRepository {
 
     private List<User> users = new ArrayList<>();
 

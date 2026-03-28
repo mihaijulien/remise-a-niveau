@@ -3,7 +3,7 @@ package io.mihaijulien.user.domain.api;
 import io.mihaijulien.user.domain.User;
 import io.mihaijulien.user.domain.api.findallusers.FindAllUsersUseCase;
 import io.mihaijulien.user.domain.api.findallusers.UserFinderUseCase;
-import io.mihaijulien.user.domain.spi.InMemoryUserRepository;
+import io.mihaijulien.user.infrastructure.InMemoryUserRepository;
 import io.mihaijulien.user.domain.spi.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

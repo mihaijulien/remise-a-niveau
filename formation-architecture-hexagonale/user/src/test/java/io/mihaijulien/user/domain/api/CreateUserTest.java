@@ -2,7 +2,7 @@ package io.mihaijulien.user.domain.api;
 
 import io.mihaijulien.user.domain.api.createuser.CreateUserUseCase;
 import io.mihaijulien.user.domain.api.createuser.UserCreatorUseCase;
-import io.mihaijulien.user.domain.spi.InMemoryUserRepository;
+import io.mihaijulien.user.infrastructure.InMemoryUserRepository;
 import io.mihaijulien.user.domain.spi.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

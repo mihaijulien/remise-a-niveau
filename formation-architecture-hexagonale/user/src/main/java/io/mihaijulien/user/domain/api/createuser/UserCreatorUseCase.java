@@ -2,7 +2,9 @@ package io.mihaijulien.user.domain.api.createuser;
 
 import io.mihaijulien.user.domain.User;
 import io.mihaijulien.user.domain.spi.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserCreatorUseCase implements CreateUserUseCase{
 
     private final UserRepository userRepository;
