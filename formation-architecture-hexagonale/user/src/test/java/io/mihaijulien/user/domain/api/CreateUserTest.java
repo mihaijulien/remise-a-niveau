@@ -9,13 +9,20 @@ import org.junit.jupiter.api.Test;
 
 public class CreateUserTest {
 
-    private UserRepository repository = new InMemoryUserRepository();
-    private CreateUserUseCase useCase = new UserCreatorUseCase(repository);
+    private final UserRepository repository = new InMemoryUserRepository();
+    private final CreateUserUseCase useCase = new UserCreatorUseCase(repository);
 
     @Test
     void shouldCreateUser() {
         Assertions.assertEquals(0, repository.findAll().size());
         useCase.create("Mihai", "Julien");
         Assertions.assertEquals(1, repository.findAll().size());
+    }
+
+    @Test
+    void givenEmptyName_shouldFail(){
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            useCase.create("", "Julien");
+        });
     }
 }

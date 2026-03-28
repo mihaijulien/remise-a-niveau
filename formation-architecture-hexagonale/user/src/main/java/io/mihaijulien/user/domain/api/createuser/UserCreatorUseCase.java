@@ -15,7 +15,14 @@ public class UserCreatorUseCase implements CreateUserUseCase{
 
     @Override
     public void create(String firstName, String lastName) {
+        if(isFirstNameOrLastNameNotFilled(firstName, lastName)){
+            throw new IllegalArgumentException("Il faut avoir un nom et un prénom.");
+        }
         User user = new User(firstName, lastName);
         this.userRepository.create(user);
+    }
+
+    private static boolean isFirstNameOrLastNameNotFilled(String firstName, String lastName) {
+        return firstName == null  || lastName == null || firstName.isBlank() || lastName.isBlank();
     }
 }

@@ -17,7 +17,11 @@ public class UserWS {
 
     @PostMapping("/api/users")
     public ResponseEntity<Void> createUser(@RequestBody CreateUserHttpRequest request){
-        createUserUseCase.create(request.firstName(), request.lastName());
+        try {
+            createUserUseCase.create(request.firstName(), request.lastName());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
