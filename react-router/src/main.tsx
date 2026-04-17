@@ -14,11 +14,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/profiles',
-    element: <ProfilesPage />
-  },
-  {
-    path: 'profiles/:profileId',
-    element: <ProfilePage />
+    element: <ProfilesPage />,
+    children: [
+      {
+        path: '/profiles/:profileId',
+        element: <ProfilePage />
+      }
+    ]
   }
 ])
 
