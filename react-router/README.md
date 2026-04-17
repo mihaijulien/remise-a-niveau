@@ -33,5 +33,5 @@ Link vs a
 <a href="/">Home from A</a>
 ```
 
-**<Link to="...">** prevents the browser's default behavior (full reload) and lets React Router handle the navigation internally.
-**<a href="...">**: browser treats it as a traditional navigation → it unloads the current React app completely and loads the page from scratch.
+- **\<Link to="...">** prevents the browser's default behavior (full reload) and lets React Router handle the navigation internally.
+- **\<a href="...">**: browser treats it as a traditional navigation → it unloads the current React app completely and loads the page from scratch.
